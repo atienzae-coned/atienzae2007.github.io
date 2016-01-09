@@ -58,10 +58,26 @@ function slideDown2() {
     topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) - 100; 
     scrnDivs[i].style.top = topOffset.toString() + "%";
   }
+  for (var i = 0; i < scrnDivs.length; ++i) {
+    topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) - 100; 
+    scrnDivs[i].style.top = topOffset.toString() + "%";
+  }
+  for (var i = 0; i < scrnDivs.length; ++i) {
+    topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) - 100; 
+    scrnDivs[i].style.top = topOffset.toString() + "%";
+  }
 } 
 function slideUp2() {
   var scrnDivs = document.getElementsByClassName("box");
   var topOffset = 0;
+  for (var i = 0; i < scrnDivs.length; ++i) {
+    topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) + 100; 
+    scrnDivs[i].style.top = topOffset.toString() + "%";
+  }
+  for (var i = 0; i < scrnDivs.length; ++i) {
+    topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) + 100; 
+    scrnDivs[i].style.top = topOffset.toString() + "%";
+  }
   for (var i = 0; i < scrnDivs.length; ++i) {
     topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) + 100; 
     scrnDivs[i].style.top = topOffset.toString() + "%";
