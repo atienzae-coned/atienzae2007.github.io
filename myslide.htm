@@ -1,0 +1,102 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<style type="text/css">
+body {
+	padding: 0px;
+}
+
+#container {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #bfbdbd;
+}
+.box {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 150px;
+	font-size: 40px;
+	text-align: center;
+	border: 2px solid black;
+	display: block;
+	transition: all 500ms ease;
+}
+#box1 {
+	background-color: green;
+	top: 0%;
+}
+
+#box2 {
+	background-color: yellow;
+	top: 100%;
+}
+
+#box3 {
+	background-color: blue;
+	top: 200%;
+}
+
+#box4 {
+	background-color: red;
+	top: 300%;
+}
+
+</style>
+
+</head>
+
+<script>
+function slideDown2() {
+  var scrnDivs = document.getElementsByClassName("box");
+  var topOffset = 0;
+  for (var i = 0; i < scrnDivs.length; ++i) {
+    topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) - 100; 
+    scrnDivs[i].style.top = topOffset.toString() + "%";
+  }
+} 
+function slideUp2() {
+  var scrnDivs = document.getElementsByClassName("box");
+  var topOffset = 0;
+  for (var i = 0; i < scrnDivs.length; ++i) {
+    topOffset = parseInt(scrnDivs[i].style.top.substr(0, scrnDivs[i].style.top.length - 1)) + 100; 
+    scrnDivs[i].style.top = topOffset.toString() + "%";
+  }
+} 
+function slideDown() {
+  var objDiv1 = document.getElementById("box1");
+  objDiv1.style.top = "-100%";
+  alert(objDiv1.style.top.length);
+  var objDiv2 = document.getElementById("box2")
+  objDiv2.style.top = "0%";
+}
+
+function slideUp() {
+  var pctTop = 0;
+  var pctTop = 100;
+  var objDiv1 = document.getElementById("box1");
+  objDiv1.style.top = "0%";
+  var objDiv2 = document.getElementById("box2")
+  objDiv2.style.top = pctTop + "%";
+}
+</script>
+
+<body>
+  <a href="#" id="sldUp" onclick="slideUp2();">Up</a>
+  <a href="#" id="sldDown" onclick="slideDown2();">Down</a>
+  <div id="container">
+	<div id="box1" class="box" style="top:0%">Div #1
+		Test Text: <input type="text" name="fname">
+	</div>
+	<div id="box2" class="box" style="top:100%">Div #2</div>
+	<div id="box3" class="box" style="top:200%">Div #3</div>
+	<div id="box4" class="box" style="top:300%">Div #4</div>
+  </div>
+</body>
+</html>
+
+
