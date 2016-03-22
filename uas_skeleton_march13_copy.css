@@ -122,6 +122,16 @@
 		  padding-top: 30px;
 		  padding-left: 0px;
 		}
+		#engineerTitle  {
+	  	  text-align:center;
+	 	  margin-left:auto;
+		  margin-right:auto;
+		  font-size: 80px;
+		  font-weight: bold;
+		  /**color:#22313F;**/
+		  color:white;
+		  font-family: "Roboto";
+		}
 	}
 
   #mainsection1 {
@@ -335,16 +345,6 @@
 div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span{color:yellow}
 div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span:hover{color:#fff}*/
 
-#engineerTitle  {
-	text-align:center;
-	margin-left:auto;
-	margin-right:auto;
-	font-size: 80px;
-	font-weight: bold;
-	/**color:#22313F;**/
-	color:white;
-	font-family: "Roboto";
-}
 #engineerTitle2  {
 	text-align:center;
 	margin-left:auto;
