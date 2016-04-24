@@ -4,23 +4,14 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="C:\Webtest\Bootstrap\bootstrap-3.3.6-dist\css\bootstrap.min.css">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
-  <link rel="stylesheet" href="tsapage314.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <!--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr,tl,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="C:\Webtest\Bootstrap\bootstrap-3.3.6-dist\js\bootstrap.min.js"></script>
 </head>
 <style>
-  body {top: 0px !important; position: static !important; }
-    .goog-te-banner-frame {display:none !important}
+
 	/* Gives main container section th entire screen */
 	#mainContainer {
 	  padding-top: 0px;
@@ -34,11 +25,6 @@
 	}  
 
 	/* sidebar default hover and focus setting for Non-active selections */
-	nav.sidebar .navbar-nav > li > a {
-		color:green;
-	}
-
-	/* sidebar default hover and focus setting for Non-active selections */
 	nav.sidebar .navbar-nav > li > a:hover, nav.sidebar .navbar-nav > li > a:focus {
 		color:red;
 	}
@@ -50,16 +36,6 @@
 		border-color: transparent;
 		color:red;
 	}
-
-	/* Sidebar tooltip settings  */ 
-	#bs-sidebar-navbar-collapse .tooltip,
-	#bs-sidebar-navbar-collapse .tooltip .tooltip-inner {
-	      width:600px;
-	      padding: 5px;
-	      font-size: 90%;
-	      word-wrap: break-word;
-	      z-index: 9000;
-  	}
 
 	nav.sidebar, .main{
 	    -webkit-transition: margin 200ms ease-out;
@@ -79,21 +55,29 @@
 		  background-color: transparent;
 		}
 
-		nav.sidebar{
-		  padding-top: 52px;
-		}
-
 		/* Change sidebar to horizontal format */
 		nav.sidebar {
-		  display:block;
-		  border-bottom: 1px solid #eee;
+		  display: block;  /* toggle show/hide in js */
+		  border: none;
 		}
 		nav.sidebar ul {
 		  text-align:center;
-		  margin-bottom:0px;
 		}
 		nav.sidebar ul li{
 		  display:inline-block;
+		}
+
+		/* Do no show tooltip in mobile */ 
+		#bs-sidebar-navbar-collapse .tooltip,
+		#bs-sidebar-navbar-collapse .tooltip .tooltip-inner {
+		      width:0px;
+		      padding: 0px;
+		      font-size: 0%;
+		      word-wrap: break-word;
+		      display: none;
+  		}
+		#bs-sidebar-navbar-collapse .tooltip-arrow {
+ 		      display: none;
 		}
 
 	}
@@ -143,6 +127,19 @@
 			padding-right: 13px;
 		}
 
+		/* Sidebar tooltip settings  */ 
+		#bs-sidebar-navbar-collapse .tooltip,
+		#bs-sidebar-navbar-collapse .tooltip .tooltip-inner {
+		      width:300px;
+		      padding: 5px;
+		      font-size: 90%;
+		      word-wrap: break-word;
+ 		      display: block;
+ 		}
+		#bs-sidebar-navbar-collapse .tooltip-arrow {
+ 		      display: block;
+		}
+
 		/* Gives main container section th entire screen */
 		#mainContainer {
 		  padding-top: 30px;
@@ -174,34 +171,69 @@
     }
   }
 
+  function initializesidebar() {
+    //Initialize: Desktop -> always show sidebar; Mobile -> hide sidebar by default
+    if ($(window).width() >= mindesktop ) {
+      $('#mainSidebar').show();
+      $('#bs-sidebar-navbar-collapse').collapse('show');
+    }
+    else {
+      $('#mainSidebar').hide();
+      $('#bs-sidebar-navbar-collapse').collapse('hide');
+    }
+  }
+
   $(document).ready(function(){
       htmlbodyHeightUpdate();
       $( window ).resize(function() {
 	htmlbodyHeightUpdate();
+	initializesidebar();
       });
       $( window ).scroll(function() {
         height2 = $('.main').height();
         htmlbodyHeightUpdate();
       });
 
-      // Handler so that only one can be opened between Menu and Submenu 	 
+      initializesidebar();
+ 
+     // For mobile mode menus,handler so that only one can be opened between Menu and Submenu 	 
       $('#mainmenu').click(function() {
         if($(window).width() < mindesktop ) {
+	  $('#mainSidebar').hide();
           $('#bs-sidebar-navbar-collapse').collapse('hide');
         }
       });
       $('#submenu').click(function() {
         if($(window).width() < mindesktop ) {
+	  if ($('#mainSidebar').css("display") == "none") {
+		//alert('Hey!');
+	    $('#mainSidebar').show();
+            $('#bs-sidebar-navbar-collapse').collapse('show');
+	  }
+	  else {
+	    $('#mainSidebar').hide();
+            $('#bs-sidebar-navbar-collapse').collapse('hide');
+	  }
+	  //alert($('#mainSidebar').css("display"));
+	  //$('#mainSidebar').show();
           $('#myNavbar').collapse('hide');
         }
       });
- 
+      $('[id^=circle]').click(function() { 
+        if ($(window).width() < mindesktop ) {
+	  $('#mainSidebar').hide();
+          $('#bs-sidebar-navbar-collapse').collapse('hide');
+	}
+	else {
+	  if ($('#mainSidebar').css("display") == "none") {
+	    $('#mainSidebar').show();
+            $('#bs-sidebar-navbar-collapse').collapse('show');
+ 	  }
+	}
+      });
+
       //for Tooltip
       $('#bs-sidebar-navbar-collapse [data-toggle="tooltip"]').tooltip({placement: "right"});
-      $('#bs-sidebar-navbar-collapse [data-toggle="tooltip"]').tooltip('hide'); 
-      /*$('#bs-sidebar-navbar-collapse [data-toggle="tooltip"]').tooltip('toggle');
-      $('#bs-sidebar-navbar-collapse [data-toggle="tooltip"]').tooltip({placement: "right"});
-      $('#bs-sidebar-navbar-collapse [data-toggle="tooltip"]').tooltip('show'); */
       //Assign and enable scrollspy
       $('body').scrollspy({target: "#bs-sidebar-navbar-collapse"})
       //Enable smooth scrolling
@@ -215,12 +247,6 @@
   });  //document.ready
 
 </script>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr,tl,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -240,15 +266,12 @@ function googleTranslateElementInit() {
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Translate</a></li>
       </ul>
     </div>
-  </div>
-</nav>
-<nav class="navbar navbar-inverse sidebar" role="navigation">
-  <div class="container-fluid">
+<nav class="navbar navbar-inverse sidebar" role="navigation" id="mainSidebar">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse">
       <ul class="nav navbar-nav">
-        <li id='circle1'><a href='#mainsection1' id="Route Planner" data-toggle="tooltip" title="The possibilities in commercial business are limitless with the advancements and technology of UAVs. Its benefits and uses facilitate several actions taken by various companies around the world.">
-          <span class="fa-stack fa-2x">
+        <li id='circle1'><a href='#mainsection1' id="Route Planner">
+          <span class="fa-stack fa-2x" data-toggle="tooltip" title="The possibilities in commercial business are limitless with the advancements and technology of UAVs. Its benefits and uses facilitate several actions taken by various companies around the world.">
             <i class="fa fa-circle-thin fa-stack-2x"></i>
             <i class="fa fa-group faa-tada animated-hover fa-stack-1x"></i>
           </span>
@@ -274,11 +297,12 @@ function googleTranslateElementInit() {
         <li id='circle4'><a href="#mainsection41" id="Itineraryy2">
           <span class="fa-stack fa-2x" data-toggle="tooltip" title="The future of technology has arrived, but engineering and science never cease to improve. What is the future of UAV technology?">
             <i class="fa fa-circle-thin fa-stack-2x"></i>
-            <i class="fa fa-fast-forward faa-passing animated-hover fa-stack-1x"></i>
+            <i class="fa fa-line-chart faa-pulse animated-hover fa-stack-1x"></i>
           </span>
         </a></li>
       </ul>
     </div>
+</nav>
   </div>
 </nav>
 <div class="container-fluid" id="mainContainer">
@@ -286,7 +310,6 @@ function googleTranslateElementInit() {
   <div id="mainsection1">
     <h1>Section 1</h1>
     <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    <div id="google_translate_element"></div>
     <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
   </div>
   <div id="mainsection2">
