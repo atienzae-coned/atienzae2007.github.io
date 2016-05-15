@@ -1,4 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,500italic,400italic,300italic,300,700,700italic);
+body{
+	font-family:"Roboto";
+}
 	/* Gives main container section th entire screen */
 	#mainContainer {
 	  padding-top: 0px;
@@ -13,7 +16,7 @@
 
 	/* sidebar default hover and focus setting for Non-active selections */
 	nav.sidebar .navbar-nav > li > a:hover, nav.sidebar .navbar-nav > li > a:focus {
-		color:red;
+		color:#FF4C65;
 	}
 
 	/* sidebar default hover and focus setting for Active selections */
@@ -21,17 +24,8 @@
 	  nav.sidebar .navbar-nav > li.active > a:focus {
 		background-color:transparent;
 		border-color: transparent;
-		color:red;
+		color:#FF4C65;
 	}
-
-	/* Sidebar tooltip settings  */ 
-	#bs-sidebar-navbar-collapse .tooltip,
-	#bs-sidebar-navbar-collapse .tooltip .tooltip-inner {
-	      width:600px;
-	      padding: 5px;
-	      font-size: 90%;
-	      word-wrap: break-word;
-  	}
 
 	nav.sidebar, .main{
 	    -webkit-transition: margin 200ms ease-out;
@@ -43,6 +37,23 @@
 	/*small/medium side display - When is screen is resized */
         /* View settings on screen size width (or wider) below */
 	@media (min-width: 250px) {
+
+	      #mainmenu {
+	      padding-left: 5px;
+	      padding-right: 5px;
+	      margin-left: 1px;
+	      margin-right: 2px;
+	      border: none;
+	    }
+
+	    #submenu {
+	      padding-left: 5px;
+	      padding-right: 5px;
+	      margin-left: 1px;
+	      margin-right: 2px;
+	      border: none;
+	    }
+
 		/* Sidebar settings */
 		.navbar-toggle {
 		  color: white;
@@ -50,22 +61,60 @@
 		  background-color: transparent;
 		}
 
-		nav.sidebar{
-		  padding-top: 52px;
-		}
-
 		/* Change sidebar to horizontal format */
 		nav.sidebar {
 		  display:block;
-		  border-bottom: 1px solid #eee;
+		  border: none;
 		}
+
 		nav.sidebar ul {
 		  text-align:center;
-		  margin-bottom:0px;
 		}
+
 		nav.sidebar ul li{
 		  display:inline-block;
 		}
+
+		/* Do not show tooltip in mobile */ 
+		#bs-sidebar-navbar-collapse .tooltip,
+		#bs-sidebar-navbar-collapse .tooltip .tooltip-inner {
+		      width:0px;
+		      padding: 0px;
+		      font-size: 0%;
+		      word-wrap: break-word;
+		      display: none;
+  		}
+
+		#bs-sidebar-navbar-collapse .tooltip-arrow {
+ 		      display: none;
+		}
+
+        #engineerTitle  {
+          text-align:center;
+         margin-left:auto;
+          margin-right:auto;
+          font-size: 45px;
+          font-weight: bold;
+          /**color:#22313F;**/
+          color:white;
+          font-family: "Roboto";
+        }
+
+        #techText2 {
+          width:100%;
+          margin-left:0%;
+        }
+
+        .instructInfo{
+          width:100%;
+          margin-top:0%;
+          margin-left:0%;
+        }
+
+	    #LeftSide{
+	    	height:100%;
+	    }
+
 	}
 
         /* View settings on screen size width (or wider) below */
@@ -96,7 +145,7 @@
 
 		/* Settings for all sections within the main section  */
 		div[id*='mainsection'] {
-		  padding-left: 120px;
+		  /*padding-left: 120px;*/
 		}
 
 		/*Center Brand*/
@@ -115,149 +164,124 @@
 			padding-right: 13px;
 		}
 
+		/* Sidebar tooltip settings  */ 
+		#bs-sidebar-navbar-collapse .tooltip,
+		#bs-sidebar-navbar-collapse .tooltip .tooltip-inner {
+		      width:300px;
+		      padding: 5px;
+		      font-size: 90%;
+		      word-wrap: break-word;
+ 		      display: block;
+ 		}
+
+		#bs-sidebar-navbar-collapse .tooltip-arrow {
+ 		      display: block;
+		}
+
+		#mainSidebar {
+			display:none;
+		}
+
 		/* Gives main container section th entire screen */
 		#mainContainer {
-		  padding-top: 30px;
+		  padding-top: 0px;
 		  padding-left: 0px;
 		}
+
+	      #engineerTitle  {
+	      text-align:center;
+	      margin-left:auto;
+	      margin-right:auto;
+	      font-size: 80px;
+	      font-weight: bold;
+	      /**color:#22313F;**/
+	      color:white;
+	      font-family: "Roboto";
+	    }
+
+        #techText2 {
+          width:50%;
+          margin-left:10%;
+        }
+        .instructInfo{
+          width:59%;
+          margin-top:-15%;
+          margin-left:30%;
+        }
+
+        #LeftSide{
+          height:1000px;
+        }
+
 	}
 
+	@media (max-width:768px){
+		div[id*='tsasection'], div[id*='mainsection'],div[id*='uassection'] {
+		  padding-left: 0px !important;
+		}
+
+		.info_footer{
+			padding: 20px 20px 20px 20px !important;
+		}
+
+		.navbar-header{
+			padding-left:0px !important;
+		}
+
+		.navbar{
+			min-height:20px !important;
+			margin-bottom:0px !important;
+		}
+
+	}
+
+
   #mainsection1 {
+  	overflow-x:hidden;
   	padding-top:1px;
   	height:1000px;
-  	width:100%;
-	background:
-		linear-gradient(
-		rgba(0, 0, 0, 0.6), 
-		rgba(0, 0, 0, 0.6)
-		),
-		url(ctePics/office.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		filter:gray;
-	}
+ 	background:
+	linear-gradient(
+      rgba(0, 0, 0, 0.8), 
+      rgba(0, 0, 0, 0.8)
+    ),
+	url("ctePics/iedCircle3.jpg") no-repeat center center fixed;
+
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;	
+  }
 
 
   #mainsection2 {
   	padding-top:1px;
   	height:1000px;
   	width:100%; 
-  	background:
-  		linear-gradient(
-		rgba(0, 0, 0, 0.6), 
-		rgba(0, 0, 0, 0.6)
-		),
-		url(ctePics/juniorPic.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		filter:gray;
   }
 
    #mainsection3 {
   	padding-top:1px;
   	height:1000px;
   	width:100%; 
-  	background:
-  		linear-gradient(
-		rgba(0, 0, 0, 0.6), 
-		rgba(0, 0, 0, 0.6)
-		),
-		url(ctePics/springs.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		filter:gray;
   }
 
    #mainsection4 {
   	padding-top:1px;
   	height:1000px;
   	width:100%; 
-  	background:
-  		linear-gradient(
-		rgba(0, 0, 0, 0.6), 
-		rgba(0, 0, 0, 0.6)
-		),
-		url(ctePics/pencil2.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		filter:gray;
   }
 
   #mainsection5 {
   	padding-top:1px;
   	height:1000px;
   	width:100%; 
-  	/**
-  	background:
-  		linear-gradient(
-		rgba(0, 0, 0, 0), 
-		rgba(0, 0, 0, 0)
-		),
-		url(ctePics/motherboard2.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		filter:gray;
-	**/
-	background:
-  		linear-gradient(
-		rgba(0, 0, 0, .6), 
-		rgba(0, 0, 0, .6)
-		),
-		url(ctePics/motherboard.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
   }
-
-
-  #mainsection6 {padding-top:1px;height:1000px;width:100%;color: #fff; background-color: #E4F1FE;}
-  #mainsection7 {padding-top:1px;height:1000px;width:100%;color: #fff; background-color: #8DC6FF;}
-  #mainsection8 {padding-top:1px;height:1000px;width:100%;color: #fff; background-color: #E4F1FE;}
-
-/*#caroslide {
-	width:100px;
-}*/
-
-/*.item, img{
-	height: auto;
-    width:  60% !important;
-    max-height:450px;
-    float:right;
-}
-
-.carousel-inner > .item > img {
-	margin: 0 auto;
-}
-
-#leftt, #rightt {
-	width:5%;
-	height:100%;
-	z-index:3000;
-}
-
-#leftt {
-	left:62%;
-}
-
-#rightt {
-	right:2%;
-}
 
 #presentation {
 	height:100%;
 	width:100%;
-}*/
+}
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -266,11 +290,11 @@
       margin: auto;
   }
 
- #slidey {
+/* #slidey {
  	height:1500px;
  	width:1500px;
  	float:right;
- }
+ }*/
 
   #leftt, #rightt {
 	background-image: none;
@@ -288,7 +312,7 @@
   	}
 
 	#slidey {
-	 	height:700px;
+	 	height:500px;
 	 	width:700px;
 	 	float:right;
 	}
@@ -306,7 +330,7 @@
   	}
 
 	#slidey {
-	 	height:700px;
+	 	height:500px;
 	 	width:700px;
 	 	float:right;
 	}
@@ -322,36 +346,21 @@
 	color:black;
 }
 
-.gtrans {
-	display:block;
-	float:left;
-	height:400px;
-	width:600px;
-}
 
 /*div#google_translate_element div.goog-te-gadget-simple{background-color:green;}
 div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span{color:yellow}
 div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span:hover{color:#fff}*/
 
-#engineerTitle  {
+/*#engineerTitle  {
 	text-align:center;
 	margin-left:auto;
 	margin-right:auto;
 	font-size: 80px;
 	font-weight: bold;
 	/**color:#22313F;**/
-	color:white;
+/*	color:white;
 	font-family: "Roboto";
-}
-#engineerTitle2  {
-	text-align:center;
-	margin-left:auto;
-	margin-right:auto;
-	font-size: 45px;
-	font-weight: bold;
-	color:#22313F;
-	font-family: "Roboto";
-}
+}*/
 
 #infoHTHS, #infoFrosh, #infoSoph, #infoJunior, #infoSenior {
 	margin-left:auto;
@@ -372,8 +381,8 @@ div#google_translate_element div.goog-te-gadget-simple a.goog-te-menu-value span
 
 hr.style14 { 
 	width:40%;
-	border: 0; 
-	height: 1px; 
+	border:0
+	height:1px;
 	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 	background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 	background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
@@ -381,202 +390,11 @@ hr.style14 {
 }
 
 
-#LeftSide{
-	display:inline-block;
-	/*width:50%;*/
-	width:100%;
-	height:1000px;
-	/*float:left;*/
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/measure.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-}
-
-#RightSide{
-	width:50%;
-	height:1000px;
-	float:right;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/bits.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	transition: width 2s;
-}
-
-/*#RightSide:hover{
-	width:50%;
-	height:1000px;
-	float:right;
-  	padding-top:1px;
-  	background:url(ctePics/parts.jpg) no-repeat center center fixed;
-  		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-  	-webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    -webkit-transition: all 0.5s;
-}*/
-
-#LeftSide2{
-	width:50%;
-	height:1000px;
-	float:left;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.85), 
-		rgba(255, 255, 255, 0.85)
-		),
-		url(ctePics/wheel.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-}
-
-#RightSide2{
-	width:50%;
-	height:1000px;
-	float:right;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.85), 
-		rgba(255, 255, 255, 0.85)
-		),
-		url(ctePics/keyboard.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	transition: width 2s;
-}
-
-#LeftTopSide{
-	width:50%;
-	height:25%;
-	float:left;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/measure.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-}
-
-#RightTopSide{
-	width:50%;
-	height:25%;
-	float:left;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/bits.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	transition: width 2s;
-}
-
-#LeftBottomSide{
-	width:50%;
-	height:25%;
-	float:left;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/measure.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-}
-
-#RightBottomSide{
-	width:50%;
-	height:25%;
-	float:left;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/bits.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	transition: width 2s;
-}
-
-#LeftSide4{
-	width:50%;
-	height:1000px;
-	float:left;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/draw.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-}
-
-#RightSide4{
-	width:50%;
-	height:1000px;
-	float:right;
-  	padding-top:1px;
-  	background:
-  		linear-gradient(
-		rgba(255, 255, 255, 0.8), 
-		rgba(255, 255, 255, 0.8)
-		),
-		url(ctePics/scope.jpg) no-repeat center center fixed;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	transition: width 2s;
-}
-
+/*This is for the text inside each course page*/
 #techBig {
 	visibility: visible;
 	margin-bottom:auto;
-	margin-top:3%;
+	margin-top:6%;
 	text-align:center;
 	margin-left:auto;
 	margin-right:auto;
@@ -585,17 +403,21 @@ hr.style14 {
 	left:2%;
 	font-family: "Roboto";
 	font-size:45px;
-	color:black;
+	color:white;
 	font-weight:700;
 }
 
+#linee {
+	margin-left:auto;
+	margin-right:auto;
+}
 
-#techText {
+/*#techText {
 	visibility: visible;
 	margin-bottom:auto;
 	margin-top:auto;
 	width:50%;
-	height:50%;
+	height:40%;
 	margin-left:auto;
 	margin-right:auto;
 	z-index:900;
@@ -605,38 +427,27 @@ hr.style14 {
 	text-align: justify;
 	font-family: "Roboto";
 	font-size: 21px;
-	color:black;
-	font-weight:400;
-}
-
-#techText2 {
-	width:50%;
-	height:50%;
-	margin-left:7%;
-	z-index:900;
-	margin-top:1%;
-	text-align: justify;
-	font-family: "Roboto";
-	font-size: 25px;
-	color:black;
-	font-weight:400;
-}
-
-/*#iedBig:hover {
-	visibility: visible;
 	color:white;
-}
-
-#iedText:hover {
-	visibility: visible;
-	color:white;
+	font-weight:400;
 }*/
 
-#alertt {
-	position:absolute;
-	float:left;
-	width:18%;
-	z-index:1000;
+#techText2 {
+	min-height:35%;
+	margin-top:2.5%;
+	z-index:900;
+	text-align: justify;
+	font-family: "Roboto";
+	font-size: 21px;
+	color:white;
+	font-weight:400;
+	background-color:rgba(0,0,0,0.45);
+    border-radius: 25px;
+    word-wrap: break-word;
+}
+
+#posCarousel {
+	top:2.5%;
+	margin-right:6%;
 }
 
 /*#techText2{
@@ -645,36 +456,477 @@ hr.style14 {
 
 
 .GPic{
-	display:inline-block;
-	float:left;
 	width:275px;
 	height:275px;
 	border-radius:50%;
-	margin-top:-2%;
-	margin-left:6%;
+	float:left;
 }
 
+.GPic img:hover{
+	-webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.8), 0 4px 15px 0 rgba(0, 0, 0, 0.6);
+  	-moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.8), 0 4px 15px 0 rgba(0, 0, 0, 0.6);
+  	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.8), 0 4px 15px 0 rgba(0, 0, 0, 0.6); 
+}
 
-.DennisInfo{
-	display:inline-block;
-	position:relative;
-	width:70%;
-	margin-left:25%;
-	margin-top:-15%;
+.instructInfo{
 	font-family: 'Roboto';
-	font-size: 25px;
+	font-size: 21px;
 	font-weight:400;
+	background-color:rgba(0,0,0,0.45);
+    border-radius: 25px;
+    color:white;
+    text-align: justify;
+    z-index:100000;
 }
 
 #teachTitle {
+	word-wrap: break-word;
 	font-weight:600;
 }
 
 #teacherNames {
+	word-wrap: break-word;
 	font-size: 16px;
 	font-weight: 400;
 }
 
 #teacherQuote {
 	font-weight: 400;
+	word-wrap: break-word;
+	text-align:justify;
+	float:right;
+}
+
+::-webkit-scrollbar{
+	width:4px;
+}
+
+::-webkit-scrollbar-thumb{
+	border-radius:3px;
+	background-color: #FF4C65;
+}
+
+::-webkit-scrollbar-track{
+	-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius:10px;
+}
+
+#myNavbar li a:hover, #myNavbar li:active a:active, .navbar-header a:hover{
+	color: #FF4C65 !important;
+}
+
+.info_footer{
+	font-family:'Roboto',sans-serif;
+	height:100px;
+	background-color:rgb(1,39,119);
+	color: #EEEEEE;
+	text-align:center;
+	margin-bottom:-10px;
+	padding: 20px 120px 20px 120px;
+	font-size:14px;
+}
+
+
+/* Basic background image styling.
+.background-image {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+*/
+
+
+/*Course Halves for Each HS Year*/
+
+	#Half1A, #Half1B, #Half2A, #Half2B,
+	#Half3A, #Half3B, #Half4A, #Half4B  {
+	    height:1000px;
+	    box-shadow: 0px 1000px rgba(0, 0, 0, 0.6) inset;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+  	    background-size: cover;
+	    margin-bottom: 0;
+	    -webkit-transition: background 3.0s linear;
+	    -moz-transition: background 3.0s linear;
+	    -o-transition: background 3.0s linear;
+	    transition: background 3.0s linear;
+	} 
+
+
+#rowOne, #rowTwo {
+    padding-left:50px;
+    padding-top:50px;
+}
+
+#rowTwo {
+	padding-left: 50px;
+	padding-right:50px;
+}
+
+#openingCTE {
+	color:white;
+	font-size:60px;
+	text-align:center;
+   	-webkit-stroke-width: 5.3px;
+   	-webkit-stroke-color: #FFFFFF;
+   	-webkit-fill-color: #FFFFFF;
+   	text-shadow: 1px 0px 20px #0237A9;
+   	-webkit-transition: width 0.3s; /*Safari & Chrome*/
+   	transition: width 0.3s;
+   	-moz-transition: width 0.3s; /* Firefox 4 */
+   	-o-transition: width 0.3s; /* Opera */
+}
+
+#openingpgraphCTE {
+	color:white;
+	top:30px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	font-size:18px;
+	width:60%;
+}
+
+#cteWWD {
+	color:white;
+	font-size:40px;
+	color:#FF4C65;
+	text-align:center;
+	font-weight: bold;
+}
+
+/*Section 1 1/4 Section Styling*/
+#froshQuarter, #sophQuarter, #juniorQuarter, #seniorQuarter {
+	overflow-x:hidden;
+	text-align:justify;
+	font-size:14px;
+	color:white;
+	text-decoration: none;
+}
+
+#hthsTitle {
+	text-align:center;
+	font-weight:bolder;
+	color:#FF4C65;
+}
+
+/* Circle options for each program year */
+.circlebase {
+	margin-left: auto;
+	margin-right:auto;
+    width:250px;
+    height:250px;
+    -moz-border-radius:250px;
+    -webkit-border-radius:250px;
+    color:white;
+    line-height: 250px;
+    font-weight: bold;
+    font-size: 22px;
+    font-family: sans-serif;
+    position:relative;
+}
+
+#backCircle1 {
+	background:
+		linear-gradient(
+      	rgba(0, 0, 0, 0.55), 
+      	rgba(0, 0, 0, 0.55)
+    	),
+		url("ctePics/ied1.jpg");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;	
+  	border:3px solid #0237A9;
+}
+
+#backCircle2 {
+	background:
+		linear-gradient(
+      	rgba(0, 0, 0, 0.55), 
+      	rgba(0, 0, 0, 0.55)
+    	),
+		url("ctePics/sophCircle.jpg");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;	
+  	border:3px solid #0237A9;
+}
+
+#backCircle3 {
+	background:
+		linear-gradient(
+      	rgba(0, 0, 0, 0.55), 
+      	rgba(0, 0, 0, 0.55)
+    	),
+		url("ctePics/cope_1.jpg");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;	
+  	border:3px solid #0237A9;
+}
+
+#backCircle4 {
+	background:
+		linear-gradient(
+      	rgba(0, 0, 0, 0.55), 
+      	rgba(0, 0, 0, 0.55)
+    	),
+		url("ctePics/edd1.jpg");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;	
+  	border:3px solid #0237A9;
+	
+}
+
+.circleinfo {
+    width:90%;
+    height:90%;
+    margin:5%;
+    color:white;
+    transition:all 3s linear;
+    -moz-border-radius:235px;
+    -webkit-border-radius:235px;
+    line-height: 235px;
+    position:absolute;
+    text-align:center;
+    transition:opacity 3s;
+    opacity:0;
+    z-index:1;
+    background:rgba(255,255,255,0.5);
+    display:none;
+}
+
+.circlebase .circlearea {
+    text-align:center;
+    color:white;
+    text-shadow: 1px 0px 20px #0237A9;
+}
+
+.circlebase:hover .circlearea { 
+	color:transparent;
+}
+
+.circlebase:hover .circleinfo {
+	display:block;
+	background-color:#0237A9;
+	opacity:0.8;
+    display:block;
+}
+
+
+
+/* End circle options for each program year */
+
+#myModal {
+	width:700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.modal-dialog{
+	width:800px;
+    overflow-y: scroll !important
+}
+
+.modal-body{
+	width:inherit;
+  	height: 500px;
+  	overflow-x:hidden;
+}
+
+#bModalTitle {
+	font-family: 'Roboto';
+	font-size: 30px;
+}
+
+#bModalText {
+	font-size: 20px;
+	font-family: 'Roboto';
+}
+
+
+#modalList {
+	margin-top:15%;
+	margin-left:20%;
+	font-size: 20px;
+	font-weight: 500;
+	cursor:pointer;
+	text-decoration:none;
+	text-shadow: 1px 0px 20px #0237A9;
+}
+
+#mList {
+	list-style-type: none;
+	text-shadow: 1px 0px 20px #0237A9;
+}
+
+#Modali {
+	font-size: 25px;
+	color:white;
+	text-shadow: 1px 0px 20px #0237A9;
+	cursor:pointer;
+	text-decoration:none;
+	list-style-type: none;
+}
+
+#Modali:hover {
+	color:#FF4C65;
+	font-weight: bold;
+}
+
+#linedText {
+	width:425px;
+	margin-left:0;
+	border-color:gray;
+}
+
+#leftFinga {
+	cursor:pointer;
+	float:left;
+}
+
+#leftFinga:hover {
+	color:#FF4C65;
+}
+
+#rightFinga {
+	cursor:pointer;
+	float:right;
+}
+
+#rightFinga:hover {
+	color:#FF4C65;
+}
+
+#courseName {
+	margin-top:200px;
+	text-align: center;
+	font-weight: bolder;
+	color:#FF4C65;
+}
+
+#courseDescriptionPageIED {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageIED {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageIED {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPageCIM {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageCIM {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageCIM {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPagePOE {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPagePOE {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePagePOE {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPageCOPE {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageCOPE {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageCOPE {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPageCSE {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageCSE {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageCSE {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPageCEA {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageCEA {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageCEA {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPageEDD {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageEDD {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageEDD {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#courseDescriptionPageRes {
+	display:block;
+	transition: opacity 1s ease-out;
+}
+
+#mediaPageRes {
+	display:none;
+	transition: opacity 1s ease-out;
+}
+
+#teachNotePageRes {
+	display:none;
+	transition: opacity 1s ease-out;
 }
